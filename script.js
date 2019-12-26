@@ -3,7 +3,7 @@
   let uppercaseChar = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   let numbersChar = ["1","2","3","4","5","6","7","8","9","0"];
   let specialChar = [ "!","#","$","%","&","(",")","*","+","-","/",":",";","<","=",">","?","@","[","^","_","`","{","|","}","~"];
-
+  let pwd = "";
 
   //setting password length
   function Length(){
@@ -21,15 +21,15 @@
    
 //want lowercase prompt
 function lowercase(){
-  var lower= confirm("Do you want lowercase letters?")
-  if(lower){
+  var lowercase= confirm("Do you want lowercase letters?")
+  if(lowercase){
     console.log("yes to lowercase")
   }
   else{
     console.log("no to lowercase")
 
   }
-  if(lower==true){
+  if(lowercase==true){
     console.log("Thanks for picking lowercase!")
   }
   else{
@@ -78,3 +78,11 @@ function special(){
   }
 }
 special()
+
+//creating password
+function generate(){
+  if (lowercase === true && uppercase === true && numbers === true && special === true){
+    console.log("generated password")
+  }
+}
+generate()
