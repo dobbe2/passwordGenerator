@@ -1,4 +1,8 @@
-//setting vars
+//The eintire function running on generate button click
+
+function generatePassword(){
+
+//setting variables
 let lowercaseChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 let uppercaseChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 let numbersChar = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
@@ -13,12 +17,11 @@ var numbers
 var special
 
 //setting password length
-// function generate(){
 
     function Length() {
       passwordLength = prompt("how long would you like your password? Must be between 8 and 128 characters")
       if (passwordLength < 8 || passwordLength > 128) {
-        alert("Password must be between 8 and 128 characters!")
+        alert("Password must be between 8 and 128 characters")
         Length()
       }
       else {
@@ -26,7 +29,6 @@ var special
       }
     }
     Length()
-
 
 //does user want lowercase prompt
   function lowercase() {
@@ -39,7 +41,6 @@ var special
     }
   }
   lowercase()
-
 
 //want uppercase prompt
   function uppercase() {
@@ -78,24 +79,14 @@ var special
 
     }
   }
-
 special()
-
-
 
 //creating password
 function generate() {
   if (lowercase) {
-    ///test
-    // var num1 = Math.random() 
-    // var num2 = num1*20
-    // var num3= Math.floor(num2)
-    // console.log(num1,num2,num3)
-
-    //
     var position = Math.floor(Math.random() * lowercaseChar.length)
     console.log("position", position)
-    var bucket = lowercaseChar[position]  // ["a","b","c"]  b  a c
+    var bucket = lowercaseChar[position]
     pwd.push(bucket)
     possible = possible.concat(lowercaseChar)
   }
@@ -118,7 +109,7 @@ function generate() {
     pwd.push(bucket)
   }
   if (lowercase == false && uppercase == false && numbers == false && special == false){
-    alert("Please refresh page and choose at least one Character set for your password")
+    alert("Please choose at least one Character set for your password")
   }
   console.log(pwd)
   console.log(possible)
@@ -131,12 +122,12 @@ function generate() {
   console.log(pwd)
   pwd = pwd.join("")
   console.log(pwd)
-
   document.getElementById("result").value = pwd
-
 }
  generate()
 
+ //Copying password to clipboard
+} 
 function clipboardFunction() {
   var copyText = document.getElementById("result");
   copyText.select();
@@ -144,6 +135,3 @@ function clipboardFunction() {
   document.execCommand("copy");
   alert("Copied your password to the clipboard")
 }
-
-
-//final touches- figure out the generate button, and have it not run on page refresh
